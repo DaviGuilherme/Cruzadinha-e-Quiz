@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas & Respostas</title>
+    <style>
+        footer {
+            height: 80px;
+            background-color: black;
+            color: #ffffff;
+            font-size: 15px;
+
+        }
+
+        footer p {
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+
+    <center>
+        <div style="background-color: black;height: 500px; display:flex; justify-content: space-around;
+    align-items: center; font-family: monospace; font-size: 30px; color: #ffffff;">
+
+
+
+            <div id="div_inicio">
+                <h1>SUPER PERGUNTAS E RESPOSTAS DE ARQUITETURA DA COMPUTAÇÃO</h1>
+                <div>
+                    Regras do jogo: <br>
+                    - As respostas devem ser escritas em Capslock; <br>
+                    - Você tem 1 chance para responder corretamente; <br><br>
+                </div>
+                <button onclick="comecar()" style="background-color: green; height: 50px;width: 100px;" autofocus>Começar</button>
+            </div>
+            <div id="div_CPU" style="display: none;">
+                Central Process Unit (Unidade Central de Processamento). Também chamada de processador, é a parte de um
+                sistema computacional, que realiza as instruções de um programa de computador, para executar a
+                aritmética básica, lógica e a entrada e saída de dados. ? <br>
+                <input type="text" id="ipt_CPU" onchange="verificar()"> <br>
+                <button onclick="verificar()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_ULA" style="display: none;">
+                É a sigla para Unidade Lógica e Aritmética. Sendo um circuito digital que realiza as operações lógicas
+                (NOT, AND, OR, XOR) e aritméticas (geralmente adição, subtração, multiplicação, divisão, dependendo do
+                microprocessador): <br>
+                <input type="text" id="ipt_ULA" onchange="verificar2()"> <br>
+                <button onclick="verificar2()">Confirmar resposta</button> <br><br>
+            </div>
+
+            <div id="div_REG" style="display: none;">
+                É uma memória local rápida do microprocessador, destinada ao armazenamento de dados e instruções.
+                Localizado no interior de um microprocessador, dentro da CPU: <br>
+                <input type="text" id="ipt_registradores" onchange="verificar3()"> <br>
+                <button onclick="verificar3()">Confirmar resposta</button>
+                <br><br>
+            </div>
+
+            <div id="div_RAM" style="display: none;">
+                É a sigla para Random Access Memory (memória de acesso aleatório). Possibilita a leitura, gravação e
+                regravação de dados. Este tipo de memória perde todos os dados, quando o computador é desligado. Sendo
+                assim uma memória volátil: <br>
+                <input type="text" id="ipt_RAM" onchange="verificar4()"> <br>
+                <button onclick="verificar4()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_ROM" style="display: none;">
+                É a sigla para Read Only Memory (memória somente de leitura), de modo que as informações são gravadas
+                uma única vez pelo fabricante e não podem mais ser apagadas ou alteradas, apenas acessadas. Essa memória
+                 não necessita de energia para manter armazenar informações, sendo uma memória não volátil: <br>
+                <input type="text" id="ipt_ROM" onchange="verificar5()"> <br>
+                <button onclick="verificar5()">Confirmar resposta</button> <br><br>
+            </div>
+
+            <div id="div_EPROM" style="display: none;">
+                É a sigla para Erasable Programmable Read-Only Memory (Memória Programável Apagável Somente de Leitura).
+                Sendo uma memória não volátil da Unidade de Comando Eletrônico (UCE), capaz armazenar informações, para
+                serem recuperadas e utilizadas posteriormente, mesmo depois de interromper a alimentação: <br>
+                <input type="text" id="ipt_EPROM" onchange="verificar6()"> <br>
+                <button onclick="verificar6()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_FLASH" style="displaY: none;">
+                É uma memória do tipo EEPROM (Electrically-Erasable Programmable Read-Only Memory, em português: Memória
+                Somente de Leitura Programável Apagável Eletricamente). Em outras palavras, é um chip regravável que
+                preserva o conteúdo sem a utilização de uma fonte de alimentação. Essa memória é utilizadas em
+                pendrives:
+                <br>
+                <input type="text" id="ipt_FLASH" onchange="verificar7()"> <br>
+                <button onclick="verificar7()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_MDM" style="display: none;">
+                É um tipo de memória não volátil, tendo como função armazenar grandes quantidades de informações: <br>
+                <input type="text" id="ipt_memoria_de_massa" onchange="verificar8()"> <br>
+                <button onclick="verificar8()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_DMA" style="display: none;">
+                Acesso direto à memória, é o método que permite que um dispositivo de entrada e saída (periféricos)
+                envie e <br>
+                receba dados diretamente da memória principal, ignorando a CPU, acelerando as operações que envolvem a
+                memória: <br>
+                <input type="text" id="ipt_DMA" onchange="verificar9()"> <br>
+                <button onclick="verificar9()">Confirmar resposta</button><br><br>
+            </div>
+
+            <div id="div_CS" id="ipt_CS" style="display: none;"> 
+                Linha de controle na eletrônica digital usada para selecionar um dos circuitos integrados dentre vários
+                conectados ao mesmo barramento de computador, geralmente utilizando a lógica de três estados: <br>
+                <input type="text" id="ipt_CS" onchange="verificar10()"> <br>
+                <button onclick="verificar10()">Confirmar resposta</button> <br><br>
+            </div>
+
+            <div id="div_AB" style="display: none;">
+                Grupo de linhas ou trilhas usadas para se referir a um endereço físico na memória. O número de trilhas
+                determina a quantidade de endereços na memória física. <br>
+                <input type="text" id="ipt_AB" onchange="verificar11()"><br>
+                <button onclick="verificar11()">Confirmar resposta</button> <br> <br>
+            </div>
+
+            <div id="div_DB" style="display: none;">
+                Também chamado de Memory Bus. É responsável para carregar os dados. <br>
+                <input type="text" id="ipt_DB" onchange="verificar12()"> <br>
+                <button onclick="verificar12()">Confirmar resposta</button> <br><br>
+            </div>
+
+
+            <div id="div_i5" style="display: none;">
+                Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em setembro de 2009: <br>
+                <input type="text" id="ipt_i5" onchange="verificar13()"> <br>
+                <button onclick="verificar13()">Confirmar resposta</button>
+            </div>
+
+            <div id="div_i7" style="display: none;">
+                Modelo de processador desenvolvido pela Intel que teve sua primeira versão lançada em novembro de 2008: <br>
+                <input type="text" id="ipt_i7" onchange="verificar14()"> <br>
+                <button onclick="verificar14()">Confirmar resposta</button>
+            </div>
+
+            <div id="div_dual_core" style="display: none;" >
+                Tipo de processador que possui dois processadores ou melhor dizendo ‘dois centros, núcleos ou cores de
+                execução‘ no mesmo circuito integrado. Cada core tem sua própria memória cash e controlador o que
+                permite que funcione mais efetivamente do que um processador single: <br>
+                <input type="text" id="ipt_DC" onchange="verificar15()"> <br>
+                <button onclick="verificar15()">Confirmar resposta</button>
+            </div>
+            <div id="div_quad_core" style="display: none;">
+                Segue o mesmo princípio de um dual-core, mas agora em teoria tem o dobro da capacidade de processamento: <br>
+                <input type="text" id="ipt_QC" onchange="verificar16()"> <br>
+                <button onclick="verificar16()">Confirmar resposta</button>
+            </div>
+        </div>
+        <div id="div_score" style="display: none;" >
+            <h1 style="color: #ffff;">FIM DE JOGO</h1> <br>
+            <i style="color: red;">ACERTOS:</i> <span id="acertos" style="color: white;">.</span> <br>
+            <i style="color: red;">ACERTOS AO CONTRÁRIO:</i> <span id="erros" style="color: white;">.</span> <br> <br>
+            <button onclick="recomecar()">Jogar Novamente</button>
+
+        </div>
+    </center>
+    <footer>
+        <div><br>
+            <p>Feito por Davi Guilherme <br>
+                RA: 02221042
+                <b style="color: green;">1CCO</b>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script>
+    var qtd_erro = 0;
+    var qtd_acerto = 0;
+
+    function comecar() {
+        div_inicio.style.display = 'none';
+
+        div_CPU.style.display = 'block';
+    }
+
+
+    function verificar() {
+        var CPU = ipt_CPU.value;
+        if (CPU == '') {
+            alert('Digite uma resposta')
+        } else if (CPU == 'CPU') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'block';
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'block';
+        }
+    }
+    function verificar2() {
+        var ULA = ipt_ULA.value;
+        if (ULA == '') {
+            alert('Digite uma resposta')
+        } else if (ULA == 'ULA') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'block';
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'block';
+        }
+    }
+    function verificar3() {
+        var REG = ipt_registradores.value;
+        if (REG == '') {
+            alert('Digite uma resposta')
+        } else if (REG == 'REGISTRADORES') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'block';
+        }
+    }
+    function verificar4() {
+        var RAM = ipt_RAM.value;
+        if (RAM == '') {
+            alert('Digite uma resposta')
+        } else if (RAM == 'RAM') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'block';
+        }
+    }
+    function verificar5() {
+        var ROM = ipt_ROM.value;
+        if (ROM == '') {
+            alert('Digite uma resposta')
+        } else if (ROM == 'ROM') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'block';
+        }
+    }
+    function verificar6() {
+        var EPROM = ipt_EPROM.value;
+        if (EPROM == '') {
+            alert('Digite uma resposta')
+        } else if (EPROM == 'EPROM') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'block';
+        }
+    }
+    function verificar7() {
+        var FLASH = ipt_FLASH.value;
+        if (FLASH == '') {
+            alert('Digite uma resposta')
+        } else if (FLASH == 'FLASH') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'block';
+        }
+    }
+    function verificar8() {
+        var MDM = ipt_memoria_de_massa.value;
+        if (MDM == '') {
+            alert('Digite uma resposta')
+        } else if (MDM == 'MEMÓRIA DE MASSA') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'block';
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'block';
+        }
+    }
+    function verificar9() {
+        var DMA = ipt_DMA.value;
+        if (DMA == '') {
+            alert('Digite uma resposta')
+        } else if (DMA == 'DMA') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+        }
+    }
+    function verificar10() {
+        var CS = ipt_CS.value;
+        if (CS == '') {
+            alert('Digite uma resposta')
+        } else if (CS == 'CS' || 'CHIP SELECT') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'block';
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'block';
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+        }
+    }
+    function verificar11() {
+        var Adress_bus = ipt_AB.value;
+        if (Adress_bus == '') {
+            alert('Digite uma resposta')
+        } else if (Adress_bus == 'ADRESS BUS') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'block';
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'block';
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+        }
+    }
+    function verificar12() {
+        var DB = ipt_DB.value;
+        if (DB == '') {
+            alert('Digite uma resposta')
+        } else if (DB == 'DATA BUS') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'block';
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'block';
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+        }
+
+    }
+
+        function verificar13() {
+        var I5 = ipt_i5.value;
+        if (I5 == '') {
+            alert('Digite uma resposta')
+        } else if (I5 == 'I5') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'block';
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'block';
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+            
+        }
+    } 
+
+    function verificar14() {
+        var i7 = ipt_i7.value;
+        if (i7 == '') {
+            alert('Digite uma resposta')
+        } else if (i7 == 'I7') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'block';
+
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'block';
+
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+            
+        }
+    } 
+    function verificar15() {
+        var DC = ipt_DC.value;
+        if (DC == '') {
+            alert('Digite uma resposta')
+        } else if (DC == 'DUAL CORE') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'none';
+            div_quad_core.style.display = 'block';
+
+
+            // div_score.style.display = 'block';
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'none';
+            div_quad_core.style.display = 'block';
+
+
+            // acertos.innerHTML = `${qtd_acerto}`;
+            // erros.innerHTML = `${qtd_erro}`;
+            
+        }
+    } 
+    function verificar16() {
+        var QC = ipt_QC.value;
+        if (QC == '') {
+            alert('Digite uma resposta')
+        } else if (QC == 'QUAD CORE') {
+            qtd_acerto++;
+            alert('ACERTOU!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'none';
+            div_quad_core.style.display = 'none';
+            div_score.style.display = 'block';
+            acertos.innerHTML = `${qtd_acerto}`;
+            erros.innerHTML = `${qtd_erro}`;
+
+
+
+        }
+        else {
+            qtd_erro++;
+            alert('ERROOOOOU!!!!!!!')
+            div_CPU.style.display = 'none';
+            div_ULA.style.display = 'none';
+            div_REG.style.display = 'none';
+            div_RAM.style.display = 'none';
+            div_ROM.style.display = 'none';
+            div_EPROM.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_FLASH.style.display = 'none';
+            div_MDM.style.display = 'none';
+            div_DMA.style.display = 'none';
+            div_CS.style.display = 'none';
+            div_AB.style.display = 'none';
+            div_DB.style.display = 'none';
+            div_i5.style.display = 'none';
+            div_i7.style.display = 'none';
+            div_dual_core.style.display = 'none';
+            div_quad_core.style.display = 'none';
+            div_score.style.display = 'block';
+
+            acertos.innerHTML = `${qtd_acerto}`;
+            erros.innerHTML = `${qtd_erro}`;
+            
+        }
+    } 
+
+    function recomecar() {
+        qtd_acerto = 0; 
+        qtd_erro = 0;
+        div_score.style.display = 'none';
+        div_CPU.style.display = 'block';
+        ipt_CPU.innerHTML = '';
+        ipt_DMA.value = '';
+        ipt_memoria_de_massa.value = '';
+        ipt_FLASH.value = '';
+        ipt_EPROM.value = '';
+        ipt_ROM.value = '';
+        ipt_RAM.value = '';
+        ipt_registradores.value = '';
+        ipt_ULA.value = '';
+        ipt_CPU.value = '';
+        ipt_CS.value = '';
+        ipt_AB.value = '';
+        ipt_DB.value = '';
+        ipt_i5.value = '';
+        ipt_i7.value = '';
+        ipt_DC.value = '';
+        ipt_QC.value = '';
+    }
+</script>
